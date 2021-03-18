@@ -1,13 +1,15 @@
 <template>
   <div>
+    <menu-default/>
     <input
       type="search"
       name=""
       id=""
       @input="gitHub.user = $event.target.value"
     />
+    <input type="button" @input="theme = $event.target.value">
     <button @click="getUser(), getRepos()">Search</button>
-    <div v-show="userGitHub">
+    <div v-show="gitHub.user">
       <h2>Informações</h2>
       <ul v-for="prop of userGitHub" v-bind:key="prop">
         <li>{{ prop }}</li>
@@ -24,7 +26,13 @@
 </template>
 
 <script>
+
+import Menu from '../shared/menu/Menu';
+
 export default {
+  components: {
+    "menu-default" : Menu
+  },
   data() {
     return {
       gitHub: {
@@ -33,8 +41,16 @@ export default {
         client_secret: "c1d133679d704dfacc4938c1d3300e46188e7130",
         repos: []
       },
-      userGitHub: ""
+      theme : "",
     };
+  },
+  mounted() {
+    if(localStorage.theme) this.theme = localStorage.theme;
+  },
+  watch: {
+    theme(newTheme) {
+      localStorage.theme = newTheme;
+    }
   },
   methods: {
     getUser() {
@@ -58,7 +74,7 @@ export default {
             public_repos
           } = res.data;
 
-          this.userGitHub = {
+          this.gitHub.user = {
             login,
             name,
             company,

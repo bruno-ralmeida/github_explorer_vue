@@ -1,0 +1,9 @@
+{
+    "cSpell.enableFiletypes": [
+        "!asciidoc",
+        "!c",
+        "!cpp",
+        "sqlite",
+        "xml"
+    ]
+}

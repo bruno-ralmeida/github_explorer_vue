@@ -30,7 +30,9 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: .2em .5em;
+  padding: 1em .5em;
+  background: #fefefe;
+  box-shadow: 0px -1px 5px #cecece;
 }
 
 .nav_logo {
@@ -43,7 +45,7 @@ export default {
     height: 18px;
     border-radius: 30px;
     display: inline-block;
-    background: #2196F3;
+    background: #4da6d1;
 }
 
 #ipt_theme {
@@ -72,7 +74,7 @@ export default {
 }
 
 .toggle_theme input:checked ~ .slider {
-  background-color: #494949;
+  background-color: #1e505f;
 }
 
 .toggle_theme  input:focus ~ .slider {

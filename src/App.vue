@@ -7,11 +7,52 @@ export default {};
 </script>
 
 <style>
+body {
+  background: #feac5e;
+  background: linear-gradient(
+    to right bottom,
+    #4bc0c8,
+    #c779d0,
+    #feac5e
+  ); 
+}
+
+* {
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+}
+
+h3 {
+  text-transform: capitalize;
+  margin: 0 0.325em;
+  color: #4855d1;
+  font-size: 22px;
+}
+
+p, a {
+  font-size: 22px;
+  color: #f6f6f6; 
+}
+
+.badge {
+  margin: 0 .5em;
+  padding: 0 0.5em;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px #ffffff49;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 /* Box sizing rules */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+
+}
+ul{
+  padding: 0;
 }
 
 /* Remove default padding */

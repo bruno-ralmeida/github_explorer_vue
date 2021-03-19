@@ -2,7 +2,7 @@
   <nav class="nav_menu">
     <div class="nav_logo">
       <image-responsive
-        url="https://fontmeme.com/permalink/210318/75199687acb5392c2e2629df98f7458d.png"
+        url="https://fontmeme.com/permalink/210319/29f1243db69c8be1e2b3ea7201a2d6cc.png"
         title="logo"
       />
     </div>
@@ -31,8 +31,6 @@ export default {
   justify-content: space-between;
   align-items: center;
   padding: 1em .5em;
-  background: #fefefe;
-  box-shadow: 0px -1px 5px #cecece;
 }
 
 .nav_logo {
@@ -93,4 +91,11 @@ export default {
   border-radius: 50%;
 }
 
+
+
+@media only screen and (max-width: 900px) {
+  .nav_logo {
+    width: 180px;
+  }
+}
 </style>

@@ -1,4 +1,4 @@
-# github-finder. 🔍🐱‍👤:octocat:
+# :octocat: github-finder. 🔍🐱‍👤
 
 > Um projeto desenvolvido em Vue.js
 
@@ -30,3 +30,12 @@ npm run build
 
  - [x] O usuário pode alternar o modo escuro/claro
  - [x] O modo selecionado deve persistir quando o usuário voltar ao aplicativo novamente
+
+> Tema Claro
+
+![Tema Claro](https://github.com/bruno-ralmeida/github-finder/blob/main/image-project/default-theme.png)
+
+> Tema Escuro 
+
+![Tema Claro](https://github.com/bruno-ralmeida/github-finder/blob/main/image-project/dark-theme.png)
+

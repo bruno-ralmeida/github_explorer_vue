@@ -7,14 +7,9 @@ export default {};
 </script>
 
 <style>
+
 body {
-  background: #feac5e;
-  background: linear-gradient(
-    to right bottom,
-    #4bc0c8,
-    #c779d0,
-    #feac5e
-  ); 
+  background: #c779d0;
 }
 
 * {

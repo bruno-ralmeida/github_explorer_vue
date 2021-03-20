@@ -10,7 +10,6 @@ export default {
 
 <style scoped>
 .image_responsive {
-  width: 100%;
-  height: 100%;
+  width: auto;
 }
 </style>

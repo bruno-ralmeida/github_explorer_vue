@@ -2,13 +2,19 @@
   <nav class="nav_menu">
     <div class="nav_logo">
       <image-responsive
-        url="https://fontmeme.com/permalink/210319/29f1243db69c8be1e2b3ea7201a2d6cc.png"
+        url="https://fontmeme.com/permalink/210320/045dfb8926af735aecd5b35729101b7d.png"
         title="logo"
       />
     </div>
     <div class="nav_ipt">
       <label for="ipt_theme" class="toggle_theme">
-        <input type="checkbox" id="ipt_theme" />
+        <input
+          type="checkbox"
+          id="ipt_theme"
+          @checked="isChecked"
+          v-model="isChecked"
+        />
+
         <span class="slider round"></span>
       </label>
     </div>
@@ -21,6 +27,32 @@ import ImageResponsive from "../image-responsive/ImageResponsive";
 export default {
   components: {
     "image-responsive": ImageResponsive
+  },
+  data() {
+    return { isChecked: "", notChecked: false };
+  },
+  mounted() {
+    if (localStorage.isChecked) {
+      this.bgTheme();
+      this.isChecked = Boolean(localStorage.isChecked == "true");
+    }
+  },
+  watch: {
+    isChecked(newChecked) {
+      localStorage.isChecked = newChecked;
+      this.bgTheme();
+    }
+  },
+  methods: {
+    bgTheme() {
+      if (this.isChecked) {
+        document.body.style.backgroundImage =
+          "linear-gradient(to right top, #282a36, #2d2f3d, #323543, #383a4a, #3d4051, #3f4254, #424557, #44475a, #44475a, #44475a, #44475a, #44475a)";
+      } else {
+        document.body.style.backgroundImage =
+          "linear-gradient(to right bottom, #4bc0c8, #c779d0, #feac5e )";
+      }
+    }
   }
 };
 </script>
@@ -30,34 +62,34 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em .5em;
+  padding: 1em 0.5em;
 }
 
 .nav_logo {
-    width: 350px;
+  width: 350px;
 }
 /*Theme*/
 .toggle_theme {
-    position: relative;
-    width: 30px;
-    height: 18px;
-    border-radius: 30px;
-    display: inline-block;
-    background: #4da6d1;
+  position: relative;
+  width: 30px;
+  height: 18px;
+  border-radius: 30px;
+  display: inline-block;
+  background: #4da6d1;
 }
 
 #ipt_theme {
-    display: none;
+  display: none;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transition: .4s;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -68,18 +100,18 @@ export default {
   top: 1px;
   left: 1px;
   background: #fefefe;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 .toggle_theme input:checked ~ .slider {
   background-color: #1e505f;
 }
 
-.toggle_theme  input:focus ~ .slider {
+.toggle_theme input:focus ~ .slider {
   box-shadow: 0 0 1px #9e9e9e;
 }
 
-.toggle_theme  input:checked ~ .slider:before {
+.toggle_theme input:checked ~ .slider:before {
   transform: translateX(12px);
 }
 
@@ -90,8 +122,6 @@ export default {
 .slider.round:before {
   border-radius: 50%;
 }
-
-
 
 @media only screen and (max-width: 900px) {
   .nav_logo {

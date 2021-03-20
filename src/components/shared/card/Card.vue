@@ -23,6 +23,7 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 2em;
 }
 
 .repo_name > a {

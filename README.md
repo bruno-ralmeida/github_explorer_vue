@@ -1,7 +1,6 @@
-<<<<<<< HEAD
-# github-finder.
+# github-finder. 🔍🐱‍👤:octocat:
 
-> A Vue.js project
+> Um projeto desenvolvido em Vue.js
 
 ## Build Setup
 
@@ -16,4 +15,18 @@ npm run dev
 npm run build
 ```
 
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+> Projeto desenvolvido com base no repositório [app-ideas 📖](https://github.com/florinpop17/app-ideas)
+> [Projeto base - # GitHub Profiles 🔍](https://github.com/florinpop17/app-ideas/blob/master/Projects/2-Intermediate/GitHub-Profiles.md#user-stories)
+
+### Histórias do usuário 🐱‍🏍
+
+ - [x] O usuário pode inserir um nome de usuário
+ - [x] O usuário pode clicar no botão de pesquisa para recuperar informações
+ - [x] O usuário pode ver o avatar, nome de usuário, seguidores e contagem de repositórios de usuário pesquisado
+ - [x] O usuário pode ver os 4 principais repositórios do usuário pesquisado
+ - [x] O usuário deve receber um alerta se o nome de usuário não for válido
+
+### Recursos bônus 🤯
+
+ - [x] O usuário pode alternar o modo escuro/claro
+ - [x] O modo selecionado deve persistir quando o usuário voltar ao aplicativo novamente

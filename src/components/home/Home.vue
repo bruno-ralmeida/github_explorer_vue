@@ -1,7 +1,6 @@
 <template>
   <div>
-    <menu-default />
-
+    <menu-default/>
     <main>
       <div class="search">
         <input type="search" id="" @input="userFilter = $event.target.value" />
@@ -67,8 +66,8 @@
             </ul>
           </div>
         </div>
-        <div v-show="gitHub.repos.length > 0">
-          <ul class="repos">
+        <div class="repos" v-show="gitHub.repos.length > 0">
+          <ul>
             <li
               class="repos_item"
               v-for="repo of gitHub.repos"
@@ -101,30 +100,16 @@ export default {
         user: "",
         repos: []
       },
-      credentials: {
-        client_id: "Iv1.0e6c579dcce44c4b",
-        client_secret: "c1d133679d704dfacc4938c1d3300e46188e7130"
-      },
-      theme: "",
       userFilter: "",
       invalidUser: ""
     };
-  },
-  mounted() {
-    if (localStorage.theme) this.theme = localStorage.theme;
-  },
-  watch: {
-    theme(newTheme) {
-      localStorage.theme = newTheme;
-    }
   },
   methods: {
     getUser() {
       this.gitHub.user = {};
       this.invalidUser = "";
       const user = this.userFilter;
-      const { client_id, client_secret } = this.credentials;
-      const url = `https://api.github.com/users/${user}?client_id=${client_id}&client_secret=${client_secret}`;
+      const url = `https://api.github.com/users/${user}`;
 
       this.$http
         .get(url)
@@ -164,8 +149,7 @@ export default {
       this.gitHub.repos = [];
       const user = this.userFilter;
 
-      const { client_id, client_secret } = this.credentials;
-      const url = `https://api.github.com/users/${user}/repos?client_id=${client_id}&client_secret=${client_secret}&per_page=4`;
+      const url = `https://api.github.com/users/${user}/repos?per_page=4`;
 
       this.$http
         .get(url)
@@ -228,43 +212,51 @@ button:focus {
 
 .repos {
   justify-self: stretch;
+  width: 100%;
+  max-width: 70vw;
+}
+
+.repos ul {
   display: flex;
   flex-wrap: wrap;
-  padding: .5em;
+  padding: 0.5em;
   justify-content: center;
-  max-width: 70vw;
 }
 
 .repos_item {
   margin: 0.5em;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
+  list-style: none;
 }
 
 main {
   display: grid;
   grid-template-rows: 1fr 40px auto;
+  grid-template-columns: 100vw;
   grid-template-areas:
     "menu"
     "search"
     "github";
 }
 
+.user {
+  display: flex;
+  flex-direction: column;
+}
 
 .user_img {
   box-shadow: 5px 3px 10px #fefefe50;
-  max-width: 350px;
-}
-
-.user_infos {
-  display: flex;
-  flex-direction: column;
-  margin: 3em 0;
+  max-width: 250px;
+  align-self: center;
 }
 
 .info_main > li {
   display: flex;
   align-items: center;
-  margin: 0.5em 0;
+  margin: 0.5em;
+  padding: 0 0.75em;
+  justify-content: flex-start;
 }
 
 .info_main p {
@@ -276,6 +268,9 @@ main {
   .repos {
     flex-direction: column;
     align-content: center;
+  }
+  .repos {
+    max-width: 100vw;
   }
 }
 </style>
